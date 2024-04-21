@@ -1,3 +1,9 @@
 build-and-deploy:
-	mvn clean install;
-	docker build -t rgs0712/box-organizer .
+	mvn clean install -DskipTests;
+	docker build -t rgs0712/box-organizer:latest .
+
+docker-stop:
+	docker-compose stop
+
+docker-run: docker-stop build-and-deploy
+	docker-compose up -d

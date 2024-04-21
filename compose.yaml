@@ -1,5 +1,9 @@
 version: '3'
 
+networks:
+    box-organizer-network:
+      driver: bridge
+
 services:
   mysql:
     image: mysql:latest
@@ -11,3 +15,12 @@ services:
       MYSQL_PASSWORD: myPass
     ports:
       - "3306:3306"
+    networks:
+      - box-organizer-network
+  box-organizer:
+    image: rgs0712/box-organizer:latest
+    container_name: box-organizer
+    ports:
+      - "8080:8080"
+    networks:
+      - box-organizer-network
