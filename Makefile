@@ -7,3 +7,9 @@ docker-stop:
 
 docker-run: docker-stop build-and-deploy
 	docker-compose up -d
+
+
+
+
+
+# HOW GENERATE RS PRIVATE AND PUBLIC KEY https://cryptotools.net/rsagen
